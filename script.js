@@ -1,7 +1,11 @@
 // --- Client-Side Physics Engine & Database ---
 const MATERIALS_DB = {
     "Aluminum": { E: 10000000 * 6894.757, rho: 2699 },
-    "Steel": { E: 30, rho: 8050 }
+    "Steel": { E: 30, rho: 8050 },
+    "Copper": { E: 117000000000, rho: 8960 },
+    "Titanium": { E: 116000000000, rho: 4500 },
+    "Concrete": { E: 30000000000, rho: 2400 },
+    "Wood": { E: 11000000000, rho: 600 }
 };
 
 const LAMBDA_DB = {

@@ -11,6 +11,8 @@ const MATERIALS_DB = {
 const LAMBDA_DB = {
     "Fixed-Fixed": [4.7300, 7.8532, 10.9956, 14.1372, 17.2788],
     "Fixed-Free": [1.8751, 4.6941, 7.8548, 10.9955, 14.1372],
+    "Fixed-Pinned": [3.9266, 7.0685, 10.2101, 13.3517, 16.4933],
+    "Free-Free": [4.7300, 7.8532, 10.9956, 14.1372, 17.2788],
     "Pinned-Pinned": [Math.PI, 2 * Math.PI, 3 * Math.PI, 4 * Math.PI, 5 * Math.PI]
 };
 
@@ -28,8 +30,9 @@ function getPropertiesLocal(data) {
         lam = lambda_list[mode_idx];
     } else {
         const n = data.mode;
-        if (data.end_condition === "Fixed-Fixed") lam = (n + 0.5) * Math.PI;
+        if (data.end_condition === "Fixed-Fixed" || data.end_condition === "Free-Free") lam = (n + 0.5) * Math.PI;
         else if (data.end_condition === "Fixed-Free") lam = (n - 0.5) * Math.PI;
+        else if (data.end_condition === "Fixed-Pinned") lam = (n + 0.25) * Math.PI;
         else lam = n * Math.PI;
     }
 

@@ -494,6 +494,11 @@ body {
     font-weight: 600;
 }
 
+.eq-sqrt-section {
+    display: flex;
+    align-items: center;
+}
+
 .eq-sqrt-content {
     border-top: 2px solid var(--text-main);
     padding-top: 8px;
@@ -535,11 +540,13 @@ body {
     font-weight: 600;
     transition: all 0.2s;
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .neon-input::-webkit-outer-spin-button,
 .neon-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 

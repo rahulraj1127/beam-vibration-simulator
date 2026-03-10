@@ -141,13 +141,16 @@ def calculate_equation(data: EquationInput):
     
     return {"frequency_hz": round(f_n, 4)}
 
-# Minimal routing to serve static files from the same folder
+# Base directory setup to serve files correctly from parent folder
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Minimal routing to serve static files from the parent folder
 @app.get("/")
 def read_root():
-    return FileResponse("index.html")
+    return FileResponse(os.path.join(BASE_DIR, "index.html"))
 
 @app.get("/{filename}")
 def read_static(filename: str):
     if filename in ["index.html", "style.css", "script.js"]:
-        return FileResponse(filename)
+        return FileResponse(os.path.join(BASE_DIR, filename))
     return {"error": "File not found"}
